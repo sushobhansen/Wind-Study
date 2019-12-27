@@ -1,6 +1,7 @@
 ## Files for Wind Study
 
-Files for the uncoupled pavement-urban canyon model
+Files for the uncoupled pavement-urban canyon model used in this paper:
+Sen, S., & Roesler, J. (2020). Wind direction and cool surface strategies on microscale urban heat island. *Urban Climate*, 31, 100548.
 
 Run on OpenFOAM v 6.0 and Python3
 

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+foamLog log
+python3 residualsplot.py
+python3 coeffsplot.py
+python3 centerlineplot.py
+python3 canopytemp.py

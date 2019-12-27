@@ -1,0 +1,78 @@
+	/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       volScalarField;
+    location    "0";
+    object      epsilon;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0];
+
+epsilonInlet	3.14e-4;
+
+internalField   uniform $epsilonInlet;
+
+boundaryField
+{
+    roads1
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+    roads3
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+    roads2
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+    south
+    {
+        type            zeroGradient;
+	}
+    west
+    {
+        type           	atmBoundaryLayerInletEpsilon;
+        value		uniform $epsilonInlet;
+	#include "includes/ABLConditions";
+    }
+    walls
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+    east
+    {
+        type            zeroGradient;
+    }
+    roofs
+    {
+        type            epsilonWallFunction;
+        value           uniform $epsilonInlet;
+    }
+    north
+    {
+        type            zeroGradient;
+    }
+    atmosphere
+    {
+        type            symmetry;
+    }
+    
+    #includeEtc "caseDicts/setConstraintTypes"
+}
+
+
+// ************************************************************************* //

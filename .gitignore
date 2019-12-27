@@ -1,0 +1,6 @@
+*.msh
+*log*
+*/polyMesh/
+proc*
+*.jpg
+*.raw
